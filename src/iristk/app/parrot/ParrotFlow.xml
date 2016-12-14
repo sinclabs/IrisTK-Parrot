@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flow name="ParrotFlow" package="iristk.app.parrot" 
+	initial="Start"	xmlns="iristk.flow" xmlns:p="iristk.flow.param" xmlns:dialog="iristk.flow.DialogFlow" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="iristk.flow flow.xsd iristk.flow.DialogFlow DialogFlow.xsd">
+	<var name="yoda" type="int"></var>
+	<state id="Start">
+		<onentry>
+			<dialog:say>Hi there, I am the angry parrot!</dialog:say>
+			<goto state="Listen"/>
+		</onentry>
+	</state>
+	
+	<state id="Listen" extends="Silence">
+		<onentry>
+			<dialog:listen/>
+		</onentry>
+		<onevent name="sense.user.speak">
+		
+			<if cond="event?sem:yoda">
+				<dialog:say>yoda <expr>event:text</expr></dialog:say>
+			</if>
+			<else/>
+				<dialog:say><expr>event:text</expr></dialog:say>
+			<reentry/>
+		</onevent>
+	</state>
+	
+	<state id="Silence">
+		<onevent name="sense.user.silence">
+			<dialog:say>Are you gonna talk or what?</dialog:say>
+			<reentry/>
+		</onevent>
+	</state>
+	
+
+</flow>

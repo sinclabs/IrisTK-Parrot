@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xml:lang="en-GB" version="1.0" root="main"
+	xmlns="http://www.w3.org/2001/06/grammar" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.w3.org/2001/06/grammar http://www.iristk.net/xml/srgs.xsd" tag-format="semantics/1.0">
+
+ 	<rule id="main" scope="public">
+        <tag>out.yoda=0;</tag>
+        <item>
+            <ruleref uri="#yoda" />
+            <tag>out.yoda = 1</tag>
+        </item>
+    </rule>
+
+  	<rule id="yoda">
+        <one-of>
+            <item>Yoda</item>
+            <item>yoda mode</item>
+            <item>small green thing</item>
+        </one-of>           
+    </rule>
+   
+</grammar>

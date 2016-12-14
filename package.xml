@@ -1,0 +1,8 @@
+<package name="parrot" version="0.1.0">
+	<run>
+		<command name="parrot" class="iristk.app.parrot.ParrotSystem"/>
+	</run>
+	<classpath>
+		<src path="src" output="bin"/>
+	</classpath>
+</package>
